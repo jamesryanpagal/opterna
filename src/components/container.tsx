@@ -39,7 +39,6 @@ export type ContainerProps = PropsWithChildren &
     cornerRadius?: number;
     flexDisplay?: boolean;
     flexDirection?: "row" | "column";
-    stretch?: boolean;
     gap?: number;
     padding?: ContainerPaddingProps | number;
     alignItems?: "center" | "start" | "end" | "between" | "around";
@@ -62,7 +61,6 @@ const Container = ({
   flexDirection = "column",
   backgroundColor = { type: "regular", color: COLORS.transparent },
   cornerRadius = 5,
-  stretch = false,
   gap = 0,
   padding = 5,
   alignItems = "start",

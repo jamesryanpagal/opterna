@@ -13,9 +13,11 @@ import {
   TitleGradient,
 } from "@/components/typography";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { COLORS } from "@/utils/constants";
 import {
@@ -210,7 +212,7 @@ const ComponentsOverview = () => {
             </Button>
           </Container>
         </ComponentCard>
-        <ComponentCard className="row-span-2" title="Input" gap={20}>
+        <ComponentCard title="Input" gap={20}>
           <Input label="First name" placeholder="John" />
           <Input label="Last name" placeholder="Doe" />
           <Input label="Email" placeholder="johndoe@example.com" required />
@@ -299,6 +301,23 @@ const ComponentsOverview = () => {
               <Skeleton className="h-[30px] rounded-sm w-full" />
               <Skeleton className="h-[15px] rounded-sm w-[150px]" />
             </Container>
+          </Container>
+        </ComponentCard>
+        <ComponentCard title="Checkbox, Switch & Radio">
+          <Checkbox id="4" label="Accept Terms & Conditions" />
+          <Checkbox id="5" label="Subscribe to Newsletter" />
+          <Checkbox id="6" label="Enable Notifications" disabled />
+          <Separator />
+          <Container
+            padding={0}
+            flexDisplay
+            flexDirection="row"
+            alignItems="center"
+            gap={10}
+          >
+            <Switch />
+            <Switch checked />
+            <Switch disabled />
           </Container>
         </ComponentCard>
       </Container>
