@@ -49,7 +49,7 @@ const ThemeProvider = ({
     }
 
     onSaveLocalStorage(STORAGE_KEY.THEME, theme);
-  }, [theme, onSaveLocalStorage]);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, systemTheme }}>
