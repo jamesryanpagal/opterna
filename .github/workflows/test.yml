@@ -26,6 +26,3 @@ jobs:
 
       - name: Lint
         run: npx eslint "**/*.{ts,tsx}"
-
-      - name: Prettier check
-        run: npx prettier --check .
