@@ -15,6 +15,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Switch } from "@/components/ui/switch";
@@ -319,6 +321,39 @@ const ComponentsOverview = () => {
             <Switch checked />
             <Switch disabled />
           </Container>
+          <Separator />
+          <RadioGroup defaultValue="comfortable">
+            <Container
+              flexDisplay
+              flexDirection="row"
+              alignItems="center"
+              gap={10}
+              padding={0}
+            >
+              <RadioGroupItem value="default" id="r1" />
+              <Label htmlFor="r1">Default</Label>
+            </Container>
+            <Container
+              flexDisplay
+              flexDirection="row"
+              alignItems="center"
+              gap={10}
+              padding={0}
+            >
+              <RadioGroupItem value="comfortable" id="r2" />
+              <Label htmlFor="r2">Comfortable</Label>
+            </Container>
+            <Container
+              flexDisplay
+              flexDirection="row"
+              alignItems="center"
+              gap={10}
+              padding={0}
+            >
+              <RadioGroupItem value="compact" id="r3" />
+              <Label htmlFor="r3">Compact</Label>
+            </Container>
+          </RadioGroup>
         </ComponentCard>
       </Container>
     </Container>
