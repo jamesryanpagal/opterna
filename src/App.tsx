@@ -3,7 +3,7 @@ import RootRoutes from "./routes/root-routes";
 
 const App = () => {
   return (
-    <ThemeProvider>
+    <ThemeProvider defaultTheme="dark">
       <RootRoutes />
     </ThemeProvider>
   );
