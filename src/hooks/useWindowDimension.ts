@@ -18,7 +18,7 @@ export type DimensionType = Pick<Dimension, "sm" | "md" | "lg">;
 
 export const useWindowDimension = () => {
   const onGetType = (width: number): DimensionType => {
-    let device: DimensionType = {
+    const device: DimensionType = {
       sm: false,
       md: false,
       lg: false,

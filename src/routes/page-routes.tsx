@@ -3,7 +3,7 @@ import {
   type RouteObject,
 } from "react-router-dom";
 import ComponentsOverview from "@/pages/ComponentsOverview";
-import Home from "@/pages/home/Home";
+import Home from "@/pages/home/home";
 
 export type RoutePath = "" | "/" | "*" | "overview";
 export type RouteParams = {};
