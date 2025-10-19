@@ -69,8 +69,17 @@ export const Title = ({ level = 3, ...props }: TitleProps) => {
   return renderTitle[level](props);
 };
 
-export const Text = ({ className, ...rest }: React.ComponentProps<"p">) => {
-  return <p className={className} {...rest} />;
+export const Text = ({
+  className,
+  secondary,
+  ...rest
+}: React.ComponentProps<"p"> & { secondary?: boolean }) => {
+  return (
+    <p
+      className={`${className} ${secondary ? "text-secondary-color" : ""}`}
+      {...rest}
+    />
+  );
 };
 
 export const Blockquote = ({

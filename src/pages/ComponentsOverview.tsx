@@ -5,6 +5,7 @@ import InputGroup, {
   InputPassword,
   TextAreaGroup,
 } from "@/components/input-group";
+import Navigation, { type NavItem } from "@/components/navigation";
 import ThemeCardRadio from "@/components/theme-card-radio";
 import {
   Blockquote,
@@ -39,6 +40,25 @@ type ComponentCardProps = PropsWithChildren &
   Pick<ContainerProps, "className" | "gap"> & {
     title: string;
   };
+
+const navItems: NavItem[] = [
+  {
+    label: "Home",
+    link: "home",
+  },
+  {
+    label: "Skills",
+    link: "skills",
+  },
+  {
+    label: "Experience",
+    link: "experience",
+  },
+  {
+    label: "Projects",
+    link: "projects",
+  },
+];
 
 const ComponentCard = ({
   title,
@@ -361,6 +381,9 @@ const ComponentsOverview = () => {
                 <Label htmlFor="r3">Compact</Label>
               </Container>
             </RadioGroup>
+          </ComponentCard>
+          <ComponentCard title="Navigation">
+            <Navigation items={navItems} />
           </ComponentCard>
         </Container>
       </Container>

@@ -21,12 +21,11 @@ export type ThemeProviderProps = PropsWithChildren & {
 
 export const ThemeContext = createContext<ThemeContextProps | null>(null);
 
-const ThemeProvider = ({
-  defaultTheme = "system",
-  children,
-}: ThemeProviderProps) => {
+const ThemeProvider = ({ defaultTheme, children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<Theme>(
-    (onGetLocalStorage(STORAGE_KEY.THEME) as Theme | undefined) || defaultTheme,
+    defaultTheme ||
+      (onGetLocalStorage(STORAGE_KEY.THEME) as Theme | undefined) ||
+      "system",
   );
   const [systemTheme, setSystemTheme] = useState<Theme | null>(null);
 

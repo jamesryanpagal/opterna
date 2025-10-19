@@ -1,10 +1,10 @@
 import ThemeProvider from "./components/context/theme-provider";
-import ComponentsOverview from "./pages/ComponentsOverview";
+import RootRoutes from "./routes/root-routes";
 
 const App = () => {
   return (
     <ThemeProvider>
-      <ComponentsOverview />
+      <RootRoutes />
     </ThemeProvider>
   );
 };
