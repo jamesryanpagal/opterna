@@ -21,10 +21,29 @@ const AppHeader = () => {
       <Link to="/#home" className="block">
         <Avatar src={appIcon} />
       </Link>
-      <Navigation items={navItems} gap={30} sm={{ gap: 20 }} />
-      <Button variant="secondary" prefix={<IoLogoGithub />}>
-        GitHub
-      </Button>
+      <Navigation
+        className="!hidden md:!flex"
+        items={navItems}
+        gap={30}
+        sm={{ gap: 20 }}
+      />
+      <Container
+        padding={0}
+        flexDisplay
+        flexDirection="row"
+        alignItems="center"
+        gap={10}
+      >
+        <Button variant="secondary" prefix={<IoLogoGithub />}>
+          GitHub
+        </Button>
+        <Navigation
+          className="flex md:!hidden"
+          items={navItems}
+          gap={30}
+          sm={{ gap: 20 }}
+        />
+      </Container>
     </Container>
   );
 };

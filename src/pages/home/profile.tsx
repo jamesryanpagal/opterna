@@ -19,9 +19,9 @@ const Profile = () => {
       sm={{
         flexDirection: "column-reverse",
         justifyContent: "center",
-        gap: 50,
+        gap: 30,
       }}
-      className="h-[90vh]"
+      className="min-h-[90vh]"
     >
       <Container
         padding={0}
@@ -86,7 +86,7 @@ const Profile = () => {
           </Button>
         </Container>
       </Container>
-      <Container className="w-[350px] h-[350px]" padding={0}>
+      <Container className="w-[280px] h-[280px]" padding={0}>
         <Avatar src={profileImg} size="full" />
       </Container>
     </Container>
