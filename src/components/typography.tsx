@@ -1,8 +1,4 @@
-import type { PropsWithChildren } from "react";
 import type React from "react";
-import type { BackgroundGradientProps } from "./container";
-import { COLORS } from "@/utils/constants";
-import Container from "./container";
 
 type H1Props = React.ComponentProps<"h1"> & {
   level?: 1;
@@ -21,16 +17,6 @@ type H5Props = React.ComponentProps<"h5"> & {
 };
 
 export type TitleProps = H1Props | H2Props | H3Props | H4Props | H5Props;
-
-export type TextGradientProps = PropsWithChildren &
-  React.ComponentProps<"p"> &
-  Partial<Pick<BackgroundGradientProps, "direction">> & {
-    gradient: string[];
-  };
-
-export type TitleGradientProps = PropsWithChildren &
-  TitleProps &
-  Pick<TextGradientProps, "gradient" | "direction">;
 
 const renderTitle: Record<string, (props: any) => React.ReactNode> = {
   "1": ({ className, ...rest }) => (
@@ -97,63 +83,5 @@ export const TextSmall = ({
 }: React.ComponentProps<"small">) => {
   return (
     <small className={`text-sm leading-4 font-medium ${className}`} {...rest} />
-  );
-};
-
-export const TextGradient = ({
-  gradient,
-  direction = "to right",
-  children,
-  ...rest
-}: TextGradientProps) => {
-  return (
-    <Container
-      backgroundColor={{ type: "gradient", color: gradient, direction }}
-      padding={0}
-      style={{
-        WebkitBackgroundClip: "text",
-        backgroundClip: "text",
-        display: "inline-block",
-      }}
-    >
-      <Text
-        {...rest}
-        style={{
-          WebkitTextFillColor: COLORS.transparent,
-        }}
-        color={COLORS.transparent}
-      >
-        {children}
-      </Text>
-    </Container>
-  );
-};
-
-export const TitleGradient = ({
-  gradient,
-  direction = "to right",
-  children,
-  ...rest
-}: TitleGradientProps) => {
-  return (
-    <Container
-      backgroundColor={{ type: "gradient", color: gradient, direction }}
-      padding={0}
-      style={{
-        WebkitBackgroundClip: "text",
-        backgroundClip: "text",
-        display: "inline-block",
-      }}
-    >
-      <Title
-        {...rest}
-        style={{
-          WebkitTextFillColor: COLORS.transparent,
-        }}
-        color={COLORS.transparent}
-      >
-        {children}
-      </Title>
-    </Container>
   );
 };

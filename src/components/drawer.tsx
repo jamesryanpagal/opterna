@@ -34,13 +34,13 @@ const Drawer = ({
       <DrawerContent>
         <DrawerHeader>
           <Container
-            padding={0}
+            padding="none"
             flexDisplay
             flexDirection="row"
             alignItems="center"
-            gap={10}
+            gap="sm"
           >
-            <Container className="w-full" padding={0}>
+            <Container className="w-full" padding="none">
               {!header ? (
                 <>
                   <DrawerTitle>{title}</DrawerTitle>

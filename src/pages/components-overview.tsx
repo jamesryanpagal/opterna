@@ -7,13 +7,7 @@ import InputGroup, {
 } from "@/components/input-group";
 import Navigation, { type NavItem } from "@/components/navigation";
 import ThemeCardRadio from "@/components/theme-card-radio";
-import {
-  Blockquote,
-  Text,
-  TextSmall,
-  Title,
-  TitleGradient,
-} from "@/components/typography";
+import { Blockquote, Text, TextSmall, Title } from "@/components/typography";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -23,7 +17,6 @@ import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
-import { COLORS } from "@/utils/constants";
 import {
   Ban,
   ChevronLeft,
@@ -63,12 +56,12 @@ const navItems: NavItem[] = [
 const ComponentCard = ({
   title,
   className,
-  gap = 10,
+  gap = "sm",
   children,
 }: ComponentCardProps) => {
   return (
     <Card title={title} className={`w-full ${className}`}>
-      <Container padding={0} flexDisplay gap={gap}>
+      <Container padding="none" flexDisplay gap={gap}>
         {children}
       </Container>
     </Card>
@@ -78,30 +71,20 @@ const ComponentCard = ({
 const ComponentsOverview = () => {
   return (
     <>
-      <Container padding={20} flexDisplay gap={10}>
+      <Container padding="sm" flexDisplay gap="sm">
         <Container
-          padding={0}
+          padding="none"
           className="w-full"
           flexDisplay
           alignItems="center"
         >
           <Text>Welcome to</Text>
-          <TitleGradient
-            className="text-center"
-            gradient={[
-              COLORS.funBlue,
-              COLORS.mediumTorquoise,
-              COLORS.tropicalBlue,
-            ]}
-            level={1}
-          >
-            Component Overview
-          </TitleGradient>
+          <Title level={1}>Component Overview</Title>
           <ThemeCardRadio className="my-3" />
         </Container>
         <Container
           className="w-full grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3"
-          padding={0}
+          padding="none"
         >
           <ComponentCard className="row-span-2" title="Typography">
             <Title level={1}>
@@ -225,7 +208,7 @@ const ComponentsOverview = () => {
               flexDirection="row"
               alignItems="center"
               justifyContent="center"
-              gap={5}
+              gap="sm"
             >
               <Button size="icon">
                 <SendHorizonal />
@@ -241,7 +224,7 @@ const ComponentsOverview = () => {
               </Button>
             </Container>
           </ComponentCard>
-          <ComponentCard title="Input" gap={20}>
+          <ComponentCard title="Input" gap="sm">
             <Input label="First name" placeholder="John" />
             <Input label="Last name" placeholder="Doe" />
             <Input label="Email" placeholder="johndoe@example.com" required />
@@ -255,14 +238,14 @@ const ComponentsOverview = () => {
               postfix={
                 <Container
                   className="w-full"
-                  padding={0}
+                  padding="none"
                   flexDisplay
                   flexDirection="row"
                   alignItems="center"
                   justifyContent="space-between"
                 >
                   <Container
-                    padding={0}
+                    padding="none"
                     flexDisplay
                     flexDirection="row"
                     alignItems="center"
@@ -283,28 +266,28 @@ const ComponentsOverview = () => {
           </ComponentCard>
           <ComponentCard title="Skeleton">
             <Container
-              padding={0}
+              padding="none"
               flexDisplay
               flexDirection="row"
-              gap={5}
+              gap="sm"
               className="w-full"
             >
-              <Container padding={0}>
+              <Container padding="none">
                 <Skeleton className="h-[50px] w-[50px] rounded-full" />
               </Container>
-              <Container padding={0} flexDisplay gap={5} className="flex-1">
+              <Container padding="none" flexDisplay gap="sm" className="flex-1">
                 <Skeleton className="h-5 rounded-sm w-full" />
                 <Skeleton className="h-5 rounded-sm w-full" />
                 <Skeleton className="h-5 rounded-sm w-full" />
               </Container>
             </Container>
             <Separator />
-            <Container padding={0} flexDisplay gap={5} className="w-full">
+            <Container padding="none" flexDisplay gap="sm" className="w-full">
               <Container
-                padding={0}
+                padding="none"
                 flexDisplay
                 flexDirection="row"
-                gap={5}
+                gap="sm"
                 className="w-full"
               >
                 <Skeleton className="h-5 rounded-sm flex-1" />
@@ -317,16 +300,16 @@ const ComponentsOverview = () => {
             </Container>
             <Separator />
             <Container
-              padding={0}
+              padding="none"
               flexDisplay
               flexDirection="row"
-              gap={5}
+              gap="sm"
               className="w-full"
             >
-              <Container padding={0}>
+              <Container padding="none">
                 <Skeleton className="h-[50px] w-[50px] rounded-full" />
               </Container>
-              <Container padding={0} className="w-full" flexDisplay gap={5}>
+              <Container padding="none" className="w-full" flexDisplay gap="sm">
                 <Skeleton className="h-[30px] rounded-sm w-full" />
                 <Skeleton className="h-[15px] rounded-sm w-[150px]" />
               </Container>
@@ -338,11 +321,11 @@ const ComponentsOverview = () => {
             <Checkbox id="6" label="Enable Notifications" disabled />
             <Separator />
             <Container
-              padding={0}
+              padding="none"
               flexDisplay
               flexDirection="row"
               alignItems="center"
-              gap={10}
+              gap="sm"
             >
               <Switch />
               <Switch checked />
@@ -354,8 +337,8 @@ const ComponentsOverview = () => {
                 flexDisplay
                 flexDirection="row"
                 alignItems="center"
-                gap={10}
-                padding={0}
+                gap="sm"
+                padding="none"
               >
                 <RadioGroupItem value="default" id="r1" />
                 <Label htmlFor="r1">Default</Label>
@@ -364,8 +347,8 @@ const ComponentsOverview = () => {
                 flexDisplay
                 flexDirection="row"
                 alignItems="center"
-                gap={10}
-                padding={0}
+                gap="sm"
+                padding="none"
               >
                 <RadioGroupItem value="comfortable" id="r2" />
                 <Label htmlFor="r2">Comfortable</Label>
@@ -374,8 +357,8 @@ const ComponentsOverview = () => {
                 flexDisplay
                 flexDirection="row"
                 alignItems="center"
-                gap={10}
-                padding={0}
+                gap="sm"
+                padding="none"
               >
                 <RadioGroupItem value="compact" id="r3" />
                 <Label htmlFor="r3">Compact</Label>

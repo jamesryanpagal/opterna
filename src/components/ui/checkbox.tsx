@@ -21,12 +21,12 @@ function Checkbox({
     flexDisplay: true,
     flexDirection: "row",
     alignItems: "center",
-    gap: 10,
+    gap: "sm",
   },
   ...props
 }: CheckboxProps) {
   return (
-    <Container padding={0} {...containerProps}>
+    <Container padding="none" {...containerProps}>
       <CheckboxPrimitive.Root
         data-slot="checkbox"
         className={cn(
