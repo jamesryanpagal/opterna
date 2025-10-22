@@ -6,10 +6,12 @@ import TypingText from "@/components/ui/shadcn-io/typing-text";
 import { COLORS } from "@/utils/constants";
 import Avatar from "@/components/avatar";
 import { profileImg } from "@/assets";
+import { onOpenUrl } from "@/utils/helper";
 
 const Profile = () => {
   return (
     <Container
+      id="home"
       padding="none"
       cornerRadius="none"
       flexDisplay
@@ -81,6 +83,11 @@ const Profile = () => {
             className="flex-1 md:flex-auto"
             prefix={<IoLogoLinkedin />}
             variant="secondary"
+            onClick={() =>
+              onOpenUrl(
+                "https://www.linkedin.com/in/james-ryan-pagal-293a691ba/",
+              )
+            }
           >
             Linkedin
           </Button>

@@ -1,5 +1,5 @@
 import Container from "./container";
-import Avatar from "./avatar";
+import Avatar, { type AvatarProps } from "./avatar";
 import { Text, Title } from "./typography";
 import { useRef } from "react";
 import { useInView, motion, type Variants } from "motion/react";
@@ -8,6 +8,7 @@ import { useUpdateEffect } from "@/hooks/useUpdateEffect";
 export type PageHeaderProps = {
   title: string;
   icon: string;
+  iconSize?: AvatarProps["size"];
   description: string;
   onComponentInView?: (props: boolean) => void;
 };
@@ -26,6 +27,7 @@ const variants: Variants = {
 const PageHeader = ({
   title,
   icon,
+  iconSize = "lg",
   description,
   onComponentInView,
 }: PageHeaderProps) => {
@@ -53,7 +55,7 @@ const PageHeader = ({
           className="w-full"
           cornerRadius="none"
         >
-          <Avatar size="lg" src={icon} className="rounded-none" />
+          <Avatar size={iconSize} src={icon} className="rounded-none" />
           <Title level={1}>{title}</Title>
         </Container>
         <Text secondary className="w-full text-center">

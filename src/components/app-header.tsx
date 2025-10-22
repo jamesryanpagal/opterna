@@ -16,6 +16,7 @@ import { useState } from "react";
 import { COLORS } from "@/utils/constants";
 import { useWindowDimension } from "@/hooks/useWindowDimension";
 import { applyTransparent } from "@/utils/applyTransparent";
+import { onOpenUrl, onScrollToAnchor } from "@/utils/helper";
 
 const headerVariants: Variants = {
   top: {
@@ -51,7 +52,11 @@ const AppHeader = () => {
       initial={"top"}
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
-      <Link to="/#home" className="block">
+      <Link
+        to="/#home"
+        onClick={() => onScrollToAnchor("home")}
+        className="block"
+      >
         <Avatar src={appIcon} />
       </Link>
       <Navigation className="!hidden md:!flex" items={navItems} />
@@ -62,7 +67,11 @@ const AppHeader = () => {
         gap="sm"
         padding="none"
       >
-        <Button variant="secondary" prefix={<IoLogoGithub />}>
+        <Button
+          variant="secondary"
+          prefix={<IoLogoGithub />}
+          onClick={() => onOpenUrl("https://github.com/jamesryanpagal")}
+        >
           GitHub
         </Button>
         <Navigation className="flex md:!hidden" items={navItems} />

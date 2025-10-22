@@ -8,6 +8,8 @@ import versionControlIcon from "./icons/git-icon.svg";
 import gameIcon from "./icons/game-icon.svg";
 import experienceIcon from "./icons/experience-icon.svg";
 import profileImg from "./images/profile-image.svg";
+import projectIcon from "./icons/project-icon.svg";
+import codingGif from "./gif/coding.gif";
 
 export {
   appIcon,
@@ -20,4 +22,6 @@ export {
   gameIcon,
   profileImg,
   experienceIcon,
+  projectIcon,
+  codingGif,
 };
