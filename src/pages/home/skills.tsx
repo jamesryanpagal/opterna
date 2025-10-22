@@ -104,8 +104,10 @@ const SkillsCard = ({
 const Skills = () => {
   return (
     <Container
+      id="skills"
       padding={{ top: "md", bottom: "md" }}
       flexDisplay
+      justifyContent="center"
       gap="lg"
       className="min-h-[100vh]"
     >

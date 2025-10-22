@@ -6,6 +6,7 @@ import { useWindowDimension } from "@/hooks/useWindowDimension";
 import { IoMenu } from "react-icons/io5";
 import { useMemo, useState } from "react";
 import Drawer from "./drawer";
+import { onScrollToAnchor } from "@/utils/helper";
 
 export type NavItem = {
   label: string;
@@ -46,6 +47,7 @@ const Navigation = ({ items, gap = "lg", ...rest }: NavigationProps) => {
             {...restButtonProps}
             onClick={() => {
               nav({ path: link as any });
+              onScrollToAnchor(link.substring(1));
               setToggleDrawer(false);
             }}
           >

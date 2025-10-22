@@ -127,6 +127,7 @@ const Timeline = ({ data }: { data: TimelineProps[] }) => {
 const Experience = () => {
   return (
     <Container
+      id="experience"
       padding={{ top: "md", bottom: "md" }}
       flexDisplay
       gap="lg"
