@@ -95,7 +95,7 @@ export const TextAreaGroup = ({
 }: TextAreaGroupProps) => {
   const Wrapper = label ? Field : React.Fragment;
   return (
-    <Wrapper {...(label && { className: "gap-1.5" })} aria-invalid={!!err}>
+    <Wrapper {...(label && { className: "gap-1.5", "aria-invalid": !!err })}>
       {label && (
         <FieldLabel>
           {label} {required && <span className="text-destructive">*</span>}

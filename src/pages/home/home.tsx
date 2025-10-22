@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { IoIosArrowUp } from "react-icons/io";
 import { onScrollToAnchor } from "@/utils/helper";
 import { useLocation } from "react-router-dom";
+import AppFooter from "@/components/app-footer";
 
 const Home = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -41,6 +42,7 @@ const Home = () => {
           <Projects />
         </Container>
       </Container>
+      <AppFooter />
       {showBackToTop && (
         <Button
           variant="secondary"
