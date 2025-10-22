@@ -2,7 +2,7 @@ import {
   createBrowserRouter as browserRouter,
   type RouteObject,
 } from "react-router-dom";
-import ComponentsOverview from "@/pages/ComponentsOverview";
+import ComponentsOverview from "@/pages/components-overview";
 import Home from "@/pages/home/home";
 
 export type RoutePath = "" | "/" | "*" | "overview";

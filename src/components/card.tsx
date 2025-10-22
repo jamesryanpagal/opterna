@@ -8,6 +8,7 @@ import {
   CardTitle,
   Card as ShadCard,
 } from "./ui/card";
+import type { ClassName } from "@/utils/type";
 
 export type CardProps = PropsWithChildren & {
   title?: string;
@@ -15,9 +16,9 @@ export type CardProps = PropsWithChildren & {
   action?: React.ReactNode;
   header?: React.ReactNode;
   footer?: React.ReactNode;
-  className?: React.HTMLAttributes<HTMLDivElement>["className"];
-  headerClassName?: React.HTMLAttributes<HTMLDivElement>["className"];
-  footerClassName?: React.HTMLAttributes<HTMLDivElement>["className"];
+  className?: ClassName;
+  headerClassName?: ClassName;
+  footerClassName?: ClassName;
 };
 
 const Card = ({
@@ -35,9 +36,13 @@ const Card = ({
     <ShadCard className={className || "w-full max-w-sm"}>
       {(header || title) && (
         <CardHeader className={headerClassName}>
-          {title && <CardTitle>{title}</CardTitle>}
-          {description && <CardDescription>{description}</CardDescription>}
-          {action && <CardAction>{action}</CardAction>}
+          {header || (
+            <>
+              {title && <CardTitle>{title}</CardTitle>}
+              {description && <CardDescription>{description}</CardDescription>}
+              {action && <CardAction>{action}</CardAction>}
+            </>
+          )}
         </CardHeader>
       )}
       <CardContent>{children}</CardContent>

@@ -17,7 +17,7 @@ export type NavigationProps = ContainerProps & {
   items: NavItem[];
 };
 
-const Navigation = ({ items, gap = 20, ...rest }: NavigationProps) => {
+const Navigation = ({ items, gap = "lg", ...rest }: NavigationProps) => {
   const nav = useNavigate();
   const location = useLocation();
   const { sm } = useWindowDimension();
@@ -34,7 +34,7 @@ const Navigation = ({ items, gap = 20, ...rest }: NavigationProps) => {
       const isSelected = urlHash === link;
 
       return (
-        <Container key={i} padding={0} cornerRadius={0}>
+        <Container key={i} padding="none" cornerRadius="none">
           <Button
             variant="clear"
             className={`cursor-pointer rounded-none relative ${
@@ -64,7 +64,7 @@ const Navigation = ({ items, gap = 20, ...rest }: NavigationProps) => {
         title="Menu"
         onClose={() => setToggleDrawer(false)}
       >
-        <Container flexDisplay gap={10} padding={{ left: 16, right: 16 }}>
+        <Container flexDisplay gap="sm" className="px-[18px] py-0">
           {renderNavItems}
         </Container>
       </Drawer>
@@ -78,8 +78,8 @@ const Navigation = ({ items, gap = 20, ...rest }: NavigationProps) => {
         flexDirection="row"
         alignItems="center"
         gap={gap}
-        padding={0}
-        cornerRadius={0}
+        padding="none"
+        cornerRadius="none"
         {...rest}
       >
         {sm ? (

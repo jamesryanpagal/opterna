@@ -6,45 +6,68 @@ import Navigation from "./navigation";
 import { navItems } from "@/utils/data";
 import { Button } from "./ui/button";
 import { IoLogoGithub } from "react-icons/io5";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  type Variants,
+} from "motion/react";
+import { useState } from "react";
+import { COLORS } from "@/utils/constants";
+import { useWindowDimension } from "@/hooks/useWindowDimension";
+import { applyTransparent } from "@/utils/applyTransparent";
+
+const headerVariants: Variants = {
+  top: {
+    backgroundColor: COLORS.gunMetal,
+    height: "10vh",
+    top: 0,
+  },
+  scrolled: {
+    backgroundColor: applyTransparent(COLORS.dark, 0.65),
+    height: "6vh",
+    top: 5,
+    padding: "0 10px",
+    borderRadius: 100,
+    backdropFilter: "blur(10px)",
+  },
+};
 
 const AppHeader = () => {
+  const { scrollYProgress } = useScroll();
+  const [showScrolledMenu, setShowScrolledMenu] = useState(false);
+
+  const { sm } = useWindowDimension();
+
+  useMotionValueEvent(scrollYProgress, "change", e => {
+    setShowScrolledMenu(e >= (sm ? 0.02 : 0.1));
+  });
+
   return (
-    <Container
-      cornerRadius={0}
-      flexDisplay
-      flexDirection="row"
-      alignItems="center"
-      padding={0}
-      justifyContent="space-between"
-      className="h-[10vh]"
+    <motion.div
+      className="flex flex-row items-center justify-between sticky z-10"
+      variants={headerVariants}
+      animate={showScrolledMenu ? "scrolled" : "top"}
+      initial={"top"}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <Link to="/#home" className="block">
         <Avatar src={appIcon} />
       </Link>
-      <Navigation
-        className="!hidden md:!flex"
-        items={navItems}
-        gap={30}
-        sm={{ gap: 20 }}
-      />
+      <Navigation className="!hidden md:!flex" items={navItems} />
       <Container
-        padding={0}
         flexDisplay
         flexDirection="row"
         alignItems="center"
-        gap={10}
+        gap="sm"
+        padding="none"
       >
         <Button variant="secondary" prefix={<IoLogoGithub />}>
           GitHub
         </Button>
-        <Navigation
-          className="flex md:!hidden"
-          items={navItems}
-          gap={30}
-          sm={{ gap: 20 }}
-        />
+        <Navigation className="flex md:!hidden" items={navItems} />
       </Container>
-    </Container>
+    </motion.div>
   );
 };
 
