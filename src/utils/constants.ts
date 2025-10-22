@@ -4,10 +4,12 @@ export const enum STORAGE_KEY {
 
 export const COLORS = {
   balticSea: "#232b2e",
-  gunMetal: "#2C3539",
+  gunMetal: "#2E3440",
   funBlue: "#1959A8",
   dodgerBlue: "#3a86ff",
   blueKay: "#3d5371",
+  riverBed: "#434C5F",
+  mulledWine: "#4C566A",
   mediumTorquoise: "#3DC9EC",
   tropicalBlue: "#c7e0ff",
   white: "#ffffff",

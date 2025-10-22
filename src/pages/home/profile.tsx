@@ -10,8 +10,8 @@ import { profileImg } from "@/assets";
 const Profile = () => {
   return (
     <Container
-      padding={0}
-      cornerRadius={0}
+      padding="none"
+      cornerRadius="none"
       flexDisplay
       flexDirection="row"
       alignItems="center"
@@ -19,14 +19,14 @@ const Profile = () => {
       sm={{
         flexDirection: "column-reverse",
         justifyContent: "center",
-        gap: 30,
+        gap: "sm",
       }}
       className="min-h-[90vh]"
     >
       <Container
-        padding={0}
+        padding="none"
         flexDisplay
-        gap={20}
+        gap="sm"
         className="w-full md:w-[500px]"
       >
         <Text
@@ -35,7 +35,7 @@ const Profile = () => {
         >
           Hi, I'm James Ryan
         </Text>
-        <Container padding={0} className="w-full">
+        <Container padding="none" className="w-full">
           <TypingText
             text={["Full Stack", "Web", "Mobile"]}
             typingSpeed={100}
@@ -56,18 +56,18 @@ const Profile = () => {
         </Container>
         <Text
           secondary
-          className="w-full ml-0 md:ml-1 text-center md:text-start text-[24px]"
+          className="w-full ml-0 md:ml-1 text-center md:text-start md:text-[24px]"
         >
           Passionate about building dynamic and responsive web and mobile
           applications, with a strong commitment to creating high-quality,
           user-focused solutions.
         </Text>
         <Container
-          padding={0}
+          padding="none"
           flexDisplay
           flexDirection="row"
           alignItems="center"
-          gap={10}
+          gap="sm"
           className="w-full"
         >
           <Button
@@ -86,7 +86,10 @@ const Profile = () => {
           </Button>
         </Container>
       </Container>
-      <Container className="w-[280px] h-[280px]" padding={0}>
+      <Container
+        className="w-[250px] h-[250px] lg:w-[400px] lg:h-[400px]"
+        padding="none"
+      >
         <Avatar src={profileImg} size="full" />
       </Container>
     </Container>
