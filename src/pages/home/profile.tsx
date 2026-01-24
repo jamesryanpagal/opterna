@@ -1,7 +1,7 @@
 import Container from "@/components/container";
-import { Text, Title } from "@/components/typography";
+import { Text, TextSmall, Title } from "@/components/typography";
 import { Button } from "@/components/ui/button";
-import { IoLogoLinkedin, IoSend } from "react-icons/io5";
+import { IoLogoLinkedin, IoLogoWhatsapp, IoSend } from "react-icons/io5";
 import { TiAttachmentOutline } from "react-icons/ti";
 import TypingText from "@/components/ui/shadcn-io/typing-text";
 import { COLORS } from "@/utils/constants";
@@ -13,6 +13,7 @@ import { Modal } from "@/components/ui/dialog";
 import { TextAreaGroup } from "@/components/input-group";
 import { IoMdImage } from "react-icons/io";
 import { Separator } from "@/components/ui/separator";
+import { MdEmail } from "react-icons/md";
 
 const Profile = () => {
   const ref = useRef<HTMLTextAreaElement>(null);
@@ -127,24 +128,17 @@ const Profile = () => {
             applications, with a strong commitment to creating high-quality,
             user-focused solutions.
           </Text>
+          <Separator />
           <Container
             padding="none"
             flexDisplay
             flexDirection="row"
             alignItems="center"
             gap="sm"
-            className="w-full"
+            className="w-full flex-wrap"
           >
             <Button
-              className="flex-1 md:flex-auto"
-              prefix={<IoSend />}
-              variant="success"
-              onClick={() => setToggleModal(true)}
-            >
-              Reach out today
-            </Button>
-            <Button
-              className="flex-1 md:flex-auto"
+              className="w-full md:w-auto"
               prefix={<IoLogoLinkedin />}
               variant="secondary"
               onClick={() =>
@@ -155,6 +149,14 @@ const Profile = () => {
             >
               Linkedin
             </Button>
+            <Container className="hidden md:flex" padding="none" flexDisplay flexDirection="row" alignItems="center">
+              <MdEmail />
+              <TextSmall className="text-secondary-color">jamesryanpagal5@gmail.com</TextSmall>
+            </Container>
+            <Container className="hidden md:flex" padding="none" flexDisplay flexDirection="row" alignItems="center">
+              <IoLogoWhatsapp />
+              <TextSmall className="text-secondary-color">+63 966 569 5486</TextSmall>
+            </Container>
           </Container>
         </Container>
         <Container

@@ -1,5 +1,16 @@
+import { angularIcon, awsIcon, cssIcon, dockerIcon, expressJsIcon, firebaseIcon, githubActionsIcon, githubIcon, gitIcon, gitlabIcon, htmlIcon, javascriptIcon, mysqlIcon, nestJsIcon, nodeJsIcon, postgresqlIcon, prismaIcon, reactIcon, reactQueryIcon, reduxIcon, tailwindIcon, typescriptIcon } from "@/assets";
 import type { NavigationProps } from "@/components/navigation";
 import type { TimelineProps } from "@/pages/home/experience";
+
+type Skill = {
+  title: string;
+  icon: string;
+}
+
+export type Skills = {
+  label: string;
+  skills: Skill[];
+}
 
 export const navItems: NavigationProps["items"] = [
   {
@@ -19,34 +30,6 @@ export const navItems: NavigationProps["items"] = [
     link: "#projects",
   },
 ];
-
-export const frontendSkills: string[] = [
-  "HTML",
-  "CSS",
-  "Javascript",
-  "Typescript",
-  "React",
-  "React Native ( Bare & Expo )",
-  "Angular",
-];
-
-export const backendSkills: string[] = [
-  "Node.js",
-  "Express.js",
-  "NestJs",
-  "Prisma",
-];
-
-export const databaseSkills: string[] = ["MySQL", "PostgreSQL", "Firebase"];
-
-export const deploymentSkills: string[] = [
-  "AWS ( S3, Cloudfront,  EC2)",
-  "CI/CD ( Github Action )",
-];
-
-export const versionControlSkills: string[] = ["Git", "GitHub"];
-
-export const gameSkills: string[] = ["C#", "Unity Engine"];
 
 export const experienceTimeline: TimelineProps[] = [
   {
@@ -172,3 +155,103 @@ export const experienceTimeline: TimelineProps[] = [
     ],
   },
 ];
+
+export const frontendSkills: Skill[] = [
+  {
+    title: "HTML",
+    icon: htmlIcon
+  },
+  {
+    title: "CSS",
+    icon: cssIcon
+  },
+  {
+    title: "Javascript",
+    icon: javascriptIcon
+  },
+  {
+    title: "Typescript",
+    icon: typescriptIcon
+  },
+  {
+    title: "React",
+    icon: reactIcon
+  },
+  {
+    title: "Angular",
+    icon: angularIcon
+  },
+  {
+    title: "React Query",
+    icon: reactQueryIcon
+  },
+  {
+    title: "Redux",
+    icon: reduxIcon
+  },
+  {
+    title: "Tailwind CSS",
+    icon: tailwindIcon
+  }
+]
+
+export const backendSkills: Skill[] = [
+  {
+    title: "Node.js",
+    icon: nodeJsIcon
+  },
+  {
+    title: "Express",
+    icon: expressJsIcon
+  },
+  {
+    title: "NestJs",
+    icon: nestJsIcon
+  },
+  {
+    title: "Prisma",
+    icon: prismaIcon
+  },
+  {
+    title: "MySQL",
+    icon: mysqlIcon
+  },
+  {
+    title: "PostgreSQL",
+    icon: postgresqlIcon
+  },
+  {
+    title: "Firebase",
+    icon: firebaseIcon
+  }
+]
+
+export const versionControlSkills: Skill[] = [
+  {
+    title: "Git",
+    icon: gitIcon
+  },
+  {
+    title: "GitHub",
+    icon: githubIcon
+  },
+  {
+    title: "GitLab",
+    icon: gitlabIcon
+  },
+]
+
+export const deploymentSkills: Skill[] = [
+  {
+    title: "AWS",
+    icon: awsIcon
+  },
+  {
+    title: "GitHub Actions",
+    icon: githubActionsIcon
+  },
+  {
+    title: "Docker",
+    icon: dockerIcon
+  }
+]
