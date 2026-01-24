@@ -154,42 +154,39 @@ const Container = ({
       className={cn(
         typeof paddingProps === "string"
           ? paddingSize[paddingProps]
-          : `${paddingTopSize[paddingProps.top as string] || ""} ${
-              paddingBottomSize[paddingProps.bottom as string] || ""
-            } ${paddingRightSize[paddingProps.right as string] || ""} ${
-              paddingLeftSize[paddingProps.left as string] || ""
-            }`,
+          : `${paddingTopSize[paddingProps.top as string] || ""} ${paddingBottomSize[paddingProps.bottom as string] || ""
+          } ${paddingRightSize[paddingProps.right as string] || ""} ${paddingLeftSize[paddingProps.left as string] || ""
+          }`,
         flexDisplayProps && "flex",
         flexDirectionProps && flexDirectionProps === "row"
           ? "flex-row"
           : flexDirectionProps === "row-reverse"
-          ? "flex-row-reverse"
-          : flexDirectionProps === "column-reverse"
-          ? "flex-col-reverse"
-          : "flex-col",
+            ? "flex-row-reverse"
+            : flexDirectionProps === "column-reverse"
+              ? "flex-col-reverse"
+              : "flex-col",
         gapProps && gapSize[gapProps],
         alignItemsProps
           ? alignItemsProps === "center"
             ? "items-center"
             : alignItemsProps === "end"
-            ? "items-end"
-            : "items-start"
+              ? "items-end"
+              : "items-start"
           : "",
         justifyContentProps && justifyContentProps === "center"
           ? "justify-center"
           : justifyContentProps === "end"
-          ? "justify-end"
-          : justifyContentProps === "space-between"
-          ? "justify-between"
-          : justifyContentProps === "justify-around"
-          ? "justify-around"
-          : "justify-start",
+            ? "justify-end"
+            : justifyContentProps === "space-between"
+              ? "justify-between"
+              : justifyContentProps === "justify-around"
+                ? "justify-around"
+                : "justify-start",
         borderedProps
           ? borderWidthProps
             ? borderSize[borderWidthProps]
             : "border border-border"
-          : "border-none",
-        // "border border-border",
+          : "",
         cornerRadiusProps && cornerRadiusSize[cornerRadiusProps],
         className,
       )}

@@ -10,6 +10,28 @@ import experienceIcon from "./icons/experience-icon.svg";
 import profileImg from "./images/profile-image.svg";
 import projectIcon from "./icons/project-icon.svg";
 import codingGif from "./gif/coding.gif";
+import htmlIcon from "./icons/html.svg";
+import cssIcon from "./icons/css.svg";
+import javascriptIcon from "./icons/javascript.svg";
+import typescriptIcon from "./icons/typescript.svg";
+import reactIcon from "./icons/react.svg";
+import angularIcon from "./icons/angular.svg";
+import reactQueryIcon from "./icons/react-query.svg";
+import reduxIcon from "./icons/redux.svg";
+import tailwindIcon from "./icons/tailwindcss.svg";
+import nodeJsIcon from "./icons/nodejs.svg";
+import expressJsIcon from "./icons/expressjs.svg";
+import nestJsIcon from "./icons/nestjs.svg";
+import prismaIcon from "./icons/prisma.svg";
+import mysqlIcon from "./icons/mysql.svg";
+import postgresqlIcon from "./icons/postgresql.svg";
+import firebaseIcon from "./icons/firebase.svg";
+import awsIcon from "./icons/aws.svg";
+import githubIcon from "./icons/github.svg";
+import gitlabIcon from "./icons/gitlab.svg"
+import gitIcon from "./icons/git.svg";
+import githubActionsIcon from "./icons/github-actions.svg";
+import dockerIcon from "./icons/docker.svg"
 
 export {
   appIcon,
@@ -24,4 +46,26 @@ export {
   experienceIcon,
   projectIcon,
   codingGif,
+  htmlIcon,
+  cssIcon,
+  javascriptIcon,
+  typescriptIcon,
+  reactIcon,
+  angularIcon,
+  reactQueryIcon,
+  reduxIcon,
+  tailwindIcon,
+  nodeJsIcon,
+  expressJsIcon,
+  nestJsIcon,
+  prismaIcon,
+  mysqlIcon,
+  postgresqlIcon,
+  firebaseIcon,
+  awsIcon,
+  githubIcon,
+  gitlabIcon,
+  gitIcon,
+  githubActionsIcon,
+  dockerIcon
 };

@@ -1,105 +1,52 @@
 import {
-  backendIcon,
-  databaseIcon,
-  deploymentIcon,
-  frontendIcon,
   skillsIcon,
-  versionControlIcon,
 } from "@/assets";
-import Avatar from "@/components/avatar";
 import Container from "@/components/container";
 import PageHeader from "@/components/page-header";
-import { Text, Title } from "@/components/typography";
-import { Separator } from "@/components/ui/separator";
-import {
-  backendSkills,
-  databaseSkills,
-  deploymentSkills,
-  frontendSkills,
-  versionControlSkills,
-} from "@/utils/data";
-import React, { useRef } from "react";
+import { TextSmall, Title } from "@/components/typography";
+import { useRef } from "react";
 import { motion, useInView, type Variants } from "motion/react";
-import Card, { type CardProps } from "@/components/card";
+import { backendSkills, deploymentSkills, frontendSkills, versionControlSkills, type Skills as SkillsProps } from "@/utils/data";
 
-type From = "left" | "right" | "bottom" | "top";
-
-type SkillsCardProps = CardProps & {
-  title: string;
-  icon: string;
-  skills: string[];
-  from?: From;
-};
-
-const fromValue: Record<From, string> = {
-  left: "-50px",
-  right: "50px",
-  top: "-50px",
-  bottom: "50px",
-};
-
-const variants = (from: From, fromValue: string): Variants => ({
-  hidden: {
-    opacity: 0,
-    [from === "left" || from === "right" ? "translateX" : "translateY"]:
-      fromValue,
-  },
-  visible: {
-    opacity: 1,
-    [from === "left" || from === "right" ? "translateX" : "translateY"]: "0px",
-  },
-});
-
-const SkillsCard = ({
-  title,
-  icon,
-  skills,
-  from = "left",
-  className,
-  ...rest
-}: SkillsCardProps) => {
+const SkillList = ({ label, skills }: SkillsProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: "all" });
+  const isInView = useInView(ref, { amount: "all" })
+
+  const variants: Variants = {
+    hidden: {
+      opacity: 0,
+      translateX: -50,
+    },
+    visible: {
+      opacity: 1,
+      translateX: 0
+    }
+  }
 
   return (
-    <div ref={ref} className={`h-full ${className}`}>
-      <motion.div
-        variants={variants(from, fromValue[from])}
-        animate={isInView ? "visible" : "hidden"}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="h-full"
-      >
-        <Card
-          header={
-            <Container
-              flexDisplay
-              flexDirection="row"
-              alignItems="center"
-              padding="none"
-              className="gap-1"
-            >
-              <Avatar src={icon} size="sm" />
-              <Title>{title}</Title>
-            </Container>
-          }
-          className="h-full"
-          {...rest}
-        >
-          <Container flexDisplay className="w-full gap-[16px] px-1.5">
-            {skills.map((skill, i) => {
+    <div ref={ref}>
+      <motion.div className="flex flex-col p-0 gap-0" variants={variants} animate={isInView ? "visible" : "hidden"} transition={{ duration: 0.3, ease: "easeInOut" }}>
+        <Container padding="none" className="bg-card border border-border/50 border-b-transparent rounded-bl-none rounded-br-none w-[170px] py-1 px-2.5">
+          <Title level={5}>{label}</Title>
+        </Container>
+        <Container bordered flexDisplay gap="none" padding="none" className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-y-5 bg-card rounded-tl-none border-border/50 py-5">
+          {
+            skills.map(({ title, icon }) => {
               return (
-                <React.Fragment key={i}>
-                  {i !== 0 && <Separator className="" />}
-                  <Text>{skill}</Text>
-                </React.Fragment>
-              );
-            })}
-          </Container>
-        </Card>
+                <Container key={title} padding="none" flexDisplay gap="sm" justifyContent="center" alignItems="center">
+                  <Container padding="none" flexDisplay gap="sm" justifyContent="center" alignItems="center" className="w-[50px] h-[50px]">
+                    <img src={icon} className="w-full h-full object-fill" />
+                  </Container>
+                  <TextSmall>{title}</TextSmall>
+                </Container>
+              )
+            })
+          }
+        </Container>
       </motion.div>
     </div>
-  );
-};
+  )
+}
 
 const Skills = () => {
   return (
@@ -117,43 +64,10 @@ const Skills = () => {
         description="Languages, Libraries, Frameworks, Version Control and other tools for
           development"
       />
-      <Container
-        cornerRadius="none"
-        padding="none"
-        className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 overflow-hidden"
-      >
-        <SkillsCard
-          title="Frontend"
-          icon={frontendIcon}
-          skills={frontendSkills}
-          className="row-span-2"
-          from="left"
-        />
-        <SkillsCard
-          title="Backend"
-          icon={backendIcon}
-          skills={backendSkills}
-          from="top"
-        />
-        <SkillsCard
-          title="Database"
-          icon={databaseIcon}
-          skills={databaseSkills}
-          from="right"
-        />
-        <SkillsCard
-          title="Version Control"
-          icon={versionControlIcon}
-          skills={versionControlSkills}
-          from="bottom"
-        />
-        <SkillsCard
-          title="Deployment"
-          icon={deploymentIcon}
-          skills={deploymentSkills}
-          from="bottom"
-        />
-      </Container>
+      <SkillList label="Frontend" skills={frontendSkills} />
+      <SkillList label="Backend" skills={backendSkills} />
+      <SkillList label="Version Control" skills={versionControlSkills} />
+      <SkillList label="Deployment" skills={deploymentSkills} />
     </Container>
   );
 };
