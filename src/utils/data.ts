@@ -1,16 +1,104 @@
-import { angularIcon, awsIcon, cssIcon, dockerIcon, expressJsIcon, firebaseIcon, githubActionsIcon, githubIcon, gitIcon, gitlabIcon, htmlIcon, javascriptIcon, mysqlIcon, nestJsIcon, nodeJsIcon, postgresqlIcon, prismaIcon, reactIcon, reactQueryIcon, reduxIcon, tailwindIcon, typescriptIcon } from "@/assets";
+import {
+  angularIcon,
+  awsIcon,
+  cssIcon,
+  dockerIcon,
+  expressJsIcon,
+  firebaseIcon,
+  githubActionsIcon,
+  githubIcon,
+  gitIcon,
+  gitlabIcon,
+  htmlIcon,
+  javascriptIcon,
+  mysqlIcon,
+  nestJsIcon,
+  nodeJsIcon,
+  postgresqlIcon,
+  prismaIcon,
+  reactIcon,
+  reactQueryIcon,
+  reduxIcon,
+  rmdlandMobileContractImg,
+  rmdlandThumbnailImg,
+  rmdlandWebContractImg,
+  rmdlandWebContractsImg,
+  rmdlandWebEmailsImg,
+  rmdlandWebPaymentBreakdownImg,
+  rmdlandWebProjectImg,
+  rmdlandWebProjectsImg,
+  rmdlandWebReservations,
+  tailwindIcon,
+  typescriptIcon,
+} from "@/assets";
 import type { NavigationProps } from "@/components/navigation";
 import type { TimelineProps } from "@/pages/home/experience";
+import { PLATFORM, type ProjectProps } from "@/pages/home/projects";
 
 type Skill = {
   title: string;
   icon: string;
-}
+};
 
 export type Skills = {
   label: string;
   skills: Skill[];
-}
+};
+
+export const projects: ProjectProps[] = [
+  {
+    id: "1",
+    thumbnail: rmdlandThumbnailImg,
+    images: [
+      rmdlandWebContractImg,
+      rmdlandWebContractsImg,
+      rmdlandWebEmailsImg,
+      rmdlandWebPaymentBreakdownImg,
+      rmdlandWebProjectsImg,
+      rmdlandWebProjectImg,
+      rmdlandWebReservations,
+      rmdlandMobileContractImg,
+    ],
+    title: "RMD Land",
+    duration: ["May 2025", "Jan 2026"],
+    summary: `
+      Real estate management system with features for managing land projects and clients, monitoring
+      client payments, sending automated daily email reminders, handling client contracts and payment
+      breakdowns, and tracking and releasing agent commissions.
+    `,
+    technologies: [
+      {
+        title: "React",
+        img: reactIcon,
+      },
+      {
+        title: "React Query",
+        img: reactQueryIcon,
+      },
+      {
+        title: "Tailwind CSS",
+        img: tailwindIcon,
+      },
+      {
+        title: "Node.js",
+        img: nodeJsIcon,
+      },
+      {
+        title: "NestJs",
+        img: nestJsIcon,
+      },
+      {
+        title: "Prisma",
+        img: prismaIcon,
+      },
+      {
+        title: "PostgreSQL",
+        img: postgresqlIcon,
+      },
+    ],
+    platforms: [PLATFORM.WEB, PLATFORM.MOBILE],
+  },
+];
 
 export const navItems: NavigationProps["items"] = [
   {
@@ -154,104 +242,119 @@ export const experienceTimeline: TimelineProps[] = [
       `,
     ],
   },
+  {
+    id: "4",
+    date: ["November 6, 2025", "Present"],
+    address: "Makati",
+    title: "React Native Developer",
+    employer: "Ascendion",
+    descriptions: [
+      `
+      Maintained and enhanced a banking mobile application by implementing new features, optimizing
+      performance, and resolving issues to ensure a secure and seamless user experience. Collaborated
+      with cross-functional teams to deliver reliable, scalable solutions aligned with business and
+      compliance requirements.
+      `,
+    ],
+  },
 ];
 
 export const frontendSkills: Skill[] = [
   {
     title: "HTML",
-    icon: htmlIcon
+    icon: htmlIcon,
   },
   {
     title: "CSS",
-    icon: cssIcon
+    icon: cssIcon,
   },
   {
     title: "Javascript",
-    icon: javascriptIcon
+    icon: javascriptIcon,
   },
   {
     title: "Typescript",
-    icon: typescriptIcon
+    icon: typescriptIcon,
   },
   {
     title: "React",
-    icon: reactIcon
+    icon: reactIcon,
   },
   {
     title: "Angular",
-    icon: angularIcon
+    icon: angularIcon,
   },
   {
     title: "React Query",
-    icon: reactQueryIcon
+    icon: reactQueryIcon,
   },
   {
     title: "Redux",
-    icon: reduxIcon
+    icon: reduxIcon,
   },
   {
     title: "Tailwind CSS",
-    icon: tailwindIcon
-  }
-]
+    icon: tailwindIcon,
+  },
+];
 
 export const backendSkills: Skill[] = [
   {
     title: "Node.js",
-    icon: nodeJsIcon
+    icon: nodeJsIcon,
   },
   {
     title: "Express",
-    icon: expressJsIcon
+    icon: expressJsIcon,
   },
   {
     title: "NestJs",
-    icon: nestJsIcon
+    icon: nestJsIcon,
   },
   {
     title: "Prisma",
-    icon: prismaIcon
+    icon: prismaIcon,
   },
   {
     title: "MySQL",
-    icon: mysqlIcon
+    icon: mysqlIcon,
   },
   {
     title: "PostgreSQL",
-    icon: postgresqlIcon
+    icon: postgresqlIcon,
   },
   {
     title: "Firebase",
-    icon: firebaseIcon
-  }
-]
+    icon: firebaseIcon,
+  },
+];
 
 export const versionControlSkills: Skill[] = [
   {
     title: "Git",
-    icon: gitIcon
+    icon: gitIcon,
   },
   {
     title: "GitHub",
-    icon: githubIcon
+    icon: githubIcon,
   },
   {
     title: "GitLab",
-    icon: gitlabIcon
+    icon: gitlabIcon,
   },
-]
+];
 
 export const deploymentSkills: Skill[] = [
   {
     title: "AWS",
-    icon: awsIcon
+    icon: awsIcon,
   },
   {
     title: "GitHub Actions",
-    icon: githubActionsIcon
+    icon: githubActionsIcon,
   },
   {
     title: "Docker",
-    icon: dockerIcon
-  }
-]
+    icon: dockerIcon,
+  },
+];

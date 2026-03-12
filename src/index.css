@@ -31,6 +31,7 @@
   --chart-3: #2563ef;
   --chart-4: #1a4eda;
   --chart-5: #1f3fad;
+  --atomic-tangerine: #f4a261;
   --sidebar: #ffffff;
   --sidebar-foreground: #1b2431;
   --sidebar-primary: #1b2431;
@@ -94,6 +95,7 @@
   --chart-3: #2563ef;
   --chart-4: #1a4eda;
   --chart-5: #1f3fad;
+  --atomic-tangerine: #f4a261;
   --sidebar: #2b303b;
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #1959a8;
@@ -155,6 +157,7 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-atomic-tangerine: var(--atomic-tangerine);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);

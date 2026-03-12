@@ -6,13 +6,19 @@ import { XIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import Container from "../container";
-import { IoClose } from "react-icons/io5";
-import { Button } from "./button";
+import { Separator } from "./separator";
+import type { ClassName } from "@/utils/type";
 
 export type DialogProps = React.ComponentProps<typeof DialogPrimitive.Root> & {
   title?: string;
-  description?: string;
+  description?: string | React.ReactNode;
   footer?: React.ReactNode;
+  showCloseButton?: boolean;
+  closeOnClickOutside?: boolean;
+  closeOnEsc?: boolean;
+  showHeaderSeparator?: boolean;
+  width?: string;
+  className?: ClassName;
 };
 
 function Dialog({ ...props }: DialogProps) {
@@ -57,9 +63,11 @@ function DialogContent({
   className,
   children,
   showCloseButton = true,
+  width,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content> & {
   showCloseButton?: boolean;
+  width?: string;
 }) {
   return (
     <DialogPortal data-slot="dialog-portal">
@@ -67,7 +75,8 @@ function DialogContent({
       <DialogPrimitive.Content
         data-slot="dialog-content"
         className={cn(
-          "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg",
+          "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] rounded-lg border border-border/50 p-6 shadow-lg duration-200",
+          width ? width : "sm:max-w-lg",
           className,
         )}
         {...props}
@@ -76,7 +85,7 @@ function DialogContent({
         {showCloseButton && (
           <DialogPrimitive.Close
             data-slot="dialog-close"
-            className="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+            className="ring-offset-background cursor-pointer focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
           >
             <XIcon />
             <span className="sr-only">Close</span>
@@ -102,7 +111,7 @@ function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="dialog-footer"
       className={cn(
-        "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
+        "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end py-3 px-5",
         className,
       )}
       {...props}
@@ -141,34 +150,66 @@ const Modal = ({
   description,
   footer,
   children,
+  showCloseButton = true,
+  closeOnClickOutside = true,
+  closeOnEsc = true,
+  showHeaderSeparator = true,
+  width,
+  className,
   ...rest
 }: DialogProps) => {
+  const contentId = React.useId();
   return (
     <Dialog {...rest}>
-      <DialogContent showCloseButton={false}>
+      <DialogContent
+        showCloseButton={showCloseButton}
+        width={width}
+        className={cn("p-0", className)}
+        id={contentId}
+        tabIndex={-1}
+        onOpenAutoFocus={e => {
+          e.preventDefault();
+
+          const el = document.getElementById(contentId) as HTMLElement | null;
+
+          if (el) el.focus();
+        }}
+        {...(!closeOnClickOutside && {
+          onInteractOutside: e => e.preventDefault(),
+        })}
+        {...(!closeOnEsc && {
+          onEscapeKeyDown: e => e.preventDefault(),
+        })}
+      >
         <DialogHeader>
           <Container
-            padding="none"
+            padding={
+              title
+                ? { top: "md", bottom: "sm", left: "md", right: "md" }
+                : "none"
+            }
             cornerRadius="none"
-            flexDisplay
-            flexDirection="row"
-            justifyContent="space-between"
-            alignItems="start"
+            className="space-y-1"
           >
-            <Container padding="none" cornerRadius="none" className="space-y-2">
-              <DialogTitle className="text-start">{title}</DialogTitle>
-              {description && (
-                <DialogDescription className="text-start">
-                  {description}
-                </DialogDescription>
-              )}
-            </Container>
-            <DialogClose asChild>
-              <Button prefix={<IoClose />} variant="secondary" size="icon-sm" />
-            </DialogClose>
+            <DialogTitle className="text-start">{title}</DialogTitle>
+            <DialogDescription
+              className="text-start"
+              asChild={typeof description === "object"}
+            >
+              {description || ""}
+            </DialogDescription>
           </Container>
+          {showHeaderSeparator && <Separator />}
         </DialogHeader>
-        {children}
+        {children && (
+          <Container
+            padding="md"
+            cornerRadius="none"
+            className="max-h-[80vh] overflow-y-auto hide-scrollbar"
+          >
+            {children}
+          </Container>
+        )}
         {footer && <DialogFooter>{footer}</DialogFooter>}
       </DialogContent>
     </Dialog>

@@ -28,10 +28,19 @@ import postgresqlIcon from "./icons/postgresql.svg";
 import firebaseIcon from "./icons/firebase.svg";
 import awsIcon from "./icons/aws.svg";
 import githubIcon from "./icons/github.svg";
-import gitlabIcon from "./icons/gitlab.svg"
+import gitlabIcon from "./icons/gitlab.svg";
 import gitIcon from "./icons/git.svg";
 import githubActionsIcon from "./icons/github-actions.svg";
-import dockerIcon from "./icons/docker.svg"
+import dockerIcon from "./icons/docker.svg";
+import rmdlandWebContractsImg from "./images/rmdland/web/contracts.png";
+import rmdlandWebContractImg from "./images/rmdland/web/contract.png";
+import rmdlandWebPaymentBreakdownImg from "./images/rmdland/web/payment-breakdowns.png";
+import rmdlandWebProjectsImg from "./images/rmdland/web/projects.png";
+import rmdlandWebProjectImg from "./images/rmdland/web/project.png";
+import rmdlandWebReservations from "./images/rmdland/web/reservations.png";
+import rmdlandWebEmailsImg from "./images/rmdland/web/emails.png";
+import rmdlandMobileContractImg from "./images/rmdland/mobile/contract.png";
+import rmdlandThumbnailImg from "./images/rmdland/rmdland-icon-lg.svg";
 
 export {
   appIcon,
@@ -67,5 +76,14 @@ export {
   gitlabIcon,
   gitIcon,
   githubActionsIcon,
-  dockerIcon
+  dockerIcon,
+  rmdlandWebContractsImg,
+  rmdlandWebContractImg,
+  rmdlandWebPaymentBreakdownImg,
+  rmdlandWebProjectsImg,
+  rmdlandWebProjectImg,
+  rmdlandWebReservations,
+  rmdlandWebEmailsImg,
+  rmdlandMobileContractImg,
+  rmdlandThumbnailImg,
 };

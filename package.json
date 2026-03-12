@@ -1,7 +1,7 @@
 {
   "name": "react-vite-typescript-shadcn-template",
   "private": true,
-  "version": "1.6.1",
+  "version": "1.7.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,6 +11,7 @@
     "deploy": "npm run build && aws s3 sync dist/ s3://www.opterna.cloud --delete && aws cloudfront create-invalidation --distribution-id E38WA2QZSOASU2 --paths '/*' --region us-east-1"
   },
   "dependencies": {
+    "@faker-js/faker": "^10.3.0",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-avatar": "^1.1.10",
@@ -61,6 +62,7 @@
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.4",
+    "baseline-browser-mapping": "^2.10.0",
     "eslint": "^9.36.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
