@@ -134,9 +134,8 @@ const ProjectCard = ({
               <div
                 key={i}
                 className={cn(
-                  "h-3 w-3 bg-accent rounded-full cursor-pointer border border-border/50",
-                  isActive &&
-                    "bg-white w-5 transition-all duration-75 ease-in-out",
+                  "h-3 w-3 rounded-full cursor-pointer border border-border/50 transition-all duration-500 ease-in-out",
+                  isActive ? "w-5 bg-white" : "w-3 bg-accent",
                 )}
                 onClick={() => {
                   carouselApi?.scrollTo(i);
@@ -152,7 +151,7 @@ const ProjectCard = ({
             flexDirection="row"
             alignItems="center"
             justifyContent="space-between"
-            className="bg-accent/25 border-border/50 py-2 px-4"
+            className="bg-accent/25 border-border/50 py-3 px-4"
             padding="none"
           >
             <Text className="text-md font-medium">Duration</Text>
@@ -165,7 +164,7 @@ const ProjectCard = ({
             flexDirection="row"
             alignItems="center"
             justifyContent="space-between"
-            className="bg-accent/25 border-border/50 py-2 px-4"
+            className="bg-accent/25 border-border/50 py-3 px-4"
             padding="none"
           >
             <Text className="text-md font-medium">Platforms</Text>
@@ -190,7 +189,7 @@ const ProjectCard = ({
             flexDirection="row"
             alignItems="center"
             justifyContent="space-between"
-            className="bg-accent/25 border-border/50 py-2 px-4"
+            className="bg-accent/25 border-border/50 py-3 px-4"
             padding="none"
           >
             <Text className="text-md font-medium">Technologies</Text>
@@ -199,11 +198,152 @@ const ProjectCard = ({
               flexDisplay
               flexDirection="row"
               alignItems="center"
-              className="flex-wrap max-w-[300px] md:max-w-full"
+              className="flex-wrap max-w-[200px] md:max-w-full"
             >
               {technologies.map(({ img }, i) => {
                 return <Avatar key={i} src={img} />;
               })}
+            </Container>
+          </Container>
+          <Text className="text-md font-medium my-3">Core Features</Text>
+          <Container
+            flexDisplay
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+            className="bg-accent/25 border-border/50 py-3 px-4"
+            padding="none"
+          >
+            <Text className="text-md font-medium">Projects</Text>
+            <Container padding="none" className="max-w-[200px] md:max-w-[70%]">
+              <TextSmall>
+                User can create projects, each project can have multiple phases,
+                each phase can have multiple blocks, each block can have
+                multiple lots. each lot can be own by only one client.
+              </TextSmall>
+            </Container>
+          </Container>
+          <Container
+            flexDisplay
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+            className="bg-accent/25 border-border/50 py-3 px-4"
+            padding="none"
+          >
+            <Text className="text-md font-medium">Reservations</Text>
+            <Container padding="none" className="max-w-[200px] md:max-w-[70%]">
+              <TextSmall>
+                A client can create a reservation for a lot. within the given
+                validity period of the reservation, the client needs to pay down
+                payment or full payment for the lot otherwise the reservation
+                will be forfeited by the system admin. Giving a chance to other
+                client to claim the lot.
+              </TextSmall>
+            </Container>
+          </Container>
+          <Container
+            flexDisplay
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+            className="bg-accent/25 border-border/50 py-3 px-4"
+            padding="none"
+          >
+            <Text className="text-md font-medium">Contracts</Text>
+            <Container padding="none" className="max-w-[200px] md:max-w-[70%]">
+              <TextSmall>
+                A contract will be generated after the client has paid the down
+                payment or full payment for the lot. It contains the details of
+                the lot, the client and the payment breakdown. The payment type
+                can be down payment of full payment.
+              </TextSmall>
+            </Container>
+          </Container>
+          <Container
+            flexDisplay
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+            className="bg-accent/25 border-border/50 py-3 px-4"
+            padding="none"
+          >
+            <Text className="text-md font-medium">Audit Trail</Text>
+            <Container padding="none" className="max-w-[200px] md:max-w-[70%]">
+              <TextSmall>
+                Every action performed in the system will be logged and can be
+                viewed by the system admin.
+              </TextSmall>
+            </Container>
+          </Container>
+          <Container
+            flexDisplay
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+            className="bg-accent/25 border-border/50 py-3 px-4"
+            padding="none"
+          >
+            <Text className="text-md font-medium">Multiple User Role</Text>
+            <Container padding="none" className="max-w-[200px] md:max-w-[70%]">
+              <TextSmall>
+                The system supports multiple user roles, each with different
+                permissions. Admin has access to all features, while secretary
+                has limited of full access depending on what the admin has
+                granted.
+              </TextSmall>
+            </Container>
+          </Container>
+          <Container
+            flexDisplay
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+            className="bg-accent/25 border-border/50 py-3 px-4"
+            padding="none"
+          >
+            <Text className="text-md font-medium">Requests</Text>
+            <Container padding="none" className="max-w-[200px] md:max-w-[70%]">
+              <TextSmall>
+                Non admin users cannot perform a direct update or delete to a
+                data. It will be sent to the admin for approval.
+              </TextSmall>
+            </Container>
+          </Container>
+          <Container
+            flexDisplay
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+            className="bg-accent/25 border-border/50 py-3 px-4"
+            padding="none"
+          >
+            <Text className="text-md font-medium">Agents & Commissions</Text>
+            <Container padding="none" className="max-w-[200px] md:max-w-[70%]">
+              <TextSmall>
+                Agent can be created by the admin. Agent can be assigned to
+                multiple projects. There will be commission breakdown for each
+                agent based on the project and the lot.
+              </TextSmall>
+            </Container>
+          </Container>
+          <Container
+            flexDisplay
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+            className="bg-accent/25 border-border/50 py-3 px-4"
+            padding="none"
+          >
+            <Text className="text-md font-medium">
+              Automated Email Reminders
+            </Text>
+            <Container padding="none" className="max-w-[200px] md:max-w-[70%]">
+              <TextSmall>
+                Client will receive automated email reminders for their upcoming
+                and late payments. The email will be sent daily at 10:00 AM
+                containing the details of the payment and possible penalties.
+              </TextSmall>
             </Container>
           </Container>
         </Container>

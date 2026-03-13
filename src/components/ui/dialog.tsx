@@ -205,7 +205,7 @@ const Modal = ({
           <Container
             padding="md"
             cornerRadius="none"
-            className="max-h-[80vh] overflow-y-auto hide-scrollbar"
+            className="max-h-[68vh] md:max-h-[80vh] overflow-y-auto hide-scrollbar"
           >
             {children}
           </Container>
