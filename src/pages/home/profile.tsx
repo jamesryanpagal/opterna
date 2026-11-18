@@ -92,15 +92,16 @@ const Profile = () => {
       >
         <Container
           id="home"
-          padding="lg"
+          padding="none"
           cornerRadius="none"
           flexDisplay
           alignItems="center"
           justifyContent="center"
           className="min-h-screen w-full md:w-[80%] lg:w-[65%] self-center border-l border-r border-lightened-dark-bg"
+          gap="none"
         >
           <Container
-            padding="none"
+            padding="lg"
             flexDisplay
             flexDirection="row"
             alignItems="center"
@@ -110,7 +111,7 @@ const Profile = () => {
               justifyContent: "center",
               gap: "sm",
             }}
-            className="w-full"
+            className="w-full flex-1"
           >
             <Container
               padding="none"
@@ -121,7 +122,7 @@ const Profile = () => {
               <Container padding="none" cornerRadius="none">
                 <Text
                   secondary
-                  className="w-full ml-0 md:ml-1 text-center md:text-start text-[24px]"
+                  className="w-full ml-0 md:ml-1 text-center md:text-start text-[14px] md:text-[24px]"
                 >
                   Hi, I'm James Ryan
                 </Text>
@@ -132,8 +133,8 @@ const Profile = () => {
                     pauseDuration={1500}
                     showCursor={true}
                     cursorCharacter="|"
-                    className="text-center md:text-start w-full text-7xl font-bold"
-                    cursorClassName="border-border text-7xl w-[5px] h-[60px]"
+                    className="text-center md:text-start w-full text-3xl md:text-7xl font-bold"
+                    cursorClassName="border-border text-3xl md:text-7xl w-[2px] md:w-[5px] h-[30px] md:h-[60px]"
                     textColors={[
                       COLORS.success,
                       COLORS.mediumTorquoise,
@@ -142,7 +143,7 @@ const Profile = () => {
                   />
                   <Title
                     level={1}
-                    className="text-center md:text-start text-7xl"
+                    className="text-center md:text-start text-3xl md:text-7xl"
                   >
                     Developer
                   </Title>
@@ -188,7 +189,7 @@ const Profile = () => {
               </Container>
             </Container>
             <Container
-              className="w-[250px] h-[250px] lg:w-[400px] lg:h-[400px]"
+              className="w-[180px] h-[180px] lg:w-[400px] lg:h-[400px]"
               padding="none"
             >
               <Avatar src={profileImg} size="full" />
@@ -198,19 +199,22 @@ const Profile = () => {
             cornerRadius="none"
             flexDisplay
             padding="none"
-            className="absolute bottom-0 left-0 w-full border-t border-lightened-dark-bg"
+            className="w-full border-t border-lightened-dark-bg"
           >
             <Container
               flexDisplay
               flexDirection="row"
+              sm={{
+                flexDirection: "column",
+              }}
               alignItems="center"
               padding="none"
               cornerRadius="none"
               gap="none"
-              className="w-full md:w-[80%] lg:w-[65%] self-center"
+              className="w-full"
             >
               <Container
-                className="flex-1 border-r-[0.5px] border-lightened-dark-bg"
+                className="flex-1 w-full border-r-0 md:border-r-[0.5px] border-b-[0.5px] md:border-b-0 border-lightened-dark-bg"
                 flexDisplay
                 cornerRadius="none"
                 flexDirection="row"
@@ -222,7 +226,7 @@ const Profile = () => {
                 <Text secondary>jamesryanpagal5@gmail.com</Text>
               </Container>
               <Container
-                className="flex-1 border-l-[0.5px] border-lightened-dark-bg"
+                className="flex-1 w-full border-l-0 md:border-l-[0.5px] border-t-[0.5px] md:border-t-0 border-lightened-dark-bg"
                 flexDisplay
                 cornerRadius="none"
                 flexDirection="row"

@@ -115,6 +115,9 @@ const Skills = () => {
           className="flex-1 border-b border-lightened-dark-bg"
           flexDisplay
           flexDirection="row"
+          sm={{
+            flexDirection: "column",
+          }}
           gap="none"
           cornerRadius="none"
         >
@@ -123,6 +126,7 @@ const Skills = () => {
             title="Frontend"
             description="Modern responsive architectures and interactive client interfaces."
             skills={frontendSkills}
+            className="border-r-0 md:border-r border-b md:border-b-0"
           />
           <List
             icon={<Server />}
@@ -137,6 +141,9 @@ const Skills = () => {
           className="flex-1"
           flexDisplay
           flexDirection="row"
+          sm={{
+            flexDirection: "column",
+          }}
           gap="none"
           cornerRadius="none"
         >
@@ -145,6 +152,7 @@ const Skills = () => {
             title="Mobile"
             description="Cross-platform mobile applications for iOS and Android."
             skills={mobileSkills}
+            className="border-r-0 md:border-r border-b md:border-b-0"
           />
           <List
             icon={<Rocket />}
