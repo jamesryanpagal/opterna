@@ -3,6 +3,8 @@ export const enum STORAGE_KEY {
 }
 
 export const COLORS = {
+  success: "#6a994e",
+  primary: "#506895",
   balticSea: "#232b2e",
   gunMetal: "#2E3440",
   funBlue: "#1959A8",

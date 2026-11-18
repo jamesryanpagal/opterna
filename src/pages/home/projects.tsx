@@ -354,10 +354,9 @@ const ProjectCard = ({
   return (
     <>
       <Container
-        bordered
-        padding="md"
-        cornerRadius="md"
-        className="border-border/50 bg-card min-h-[430px] cursor-pointer"
+        padding="lg"
+        cornerRadius="none"
+        className="min-h-[430px] cursor-pointer border-b border-lightened-dark-bg hover:bg-accent/25"
         flexDisplay
         onClick={() => setToggleFullDescription(true)}
       >
@@ -416,24 +415,35 @@ const Projects = () => {
   return (
     <Container
       id="projects"
-      padding={{ top: "md", bottom: "md" }}
+      padding="none"
       flexDisplay
-      gap="lg"
-      className="min-h-[100vh]"
+      gap="none"
+      cornerRadius="none"
     >
-      <PageHeader
-        title="Projects"
-        icon={projectIcon}
-        iconSize="full"
-        description="My personal projects"
-      />
-      <TextSmall className="text-center italic text-atomic-tangerine">
-        Note: Only projects that are publicly available and medium to large
-        scale projects are shown here.
-      </TextSmall>
       <Container
         padding="none"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+        cornerRadius="none"
+        flexDisplay
+        className="border-b border-lightened-dark-bg"
+      >
+        <Container
+          padding="lg"
+          cornerRadius="none"
+          className="w-full md:w-[80%] lg:w-[65%] self-center border-l border-r border-lightened-dark-bg"
+        >
+          <PageHeader
+            title="Featured Projects"
+            icon={projectIcon}
+            description="My featured projects"
+          />
+        </Container>
+      </Container>
+      <Container
+        padding="none"
+        flexDisplay
+        cornerRadius="none"
+        gap="none"
+        className="min-h-[100vh] w-full md:w-[80%] lg:w-[65%] self-center border-l border-r border-lightened-dark-bg"
       >
         {projects.map(project => {
           return <ProjectCard key={project.id} {...project} />;

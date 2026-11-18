@@ -30,11 +30,7 @@ const Home = () => {
   return (
     <>
       <Container padding="none" cornerRadius="none" flexDisplay>
-        <Container
-          padding="none"
-          cornerRadius="none"
-          className="self-center w-[90%] md:w-[80%] lg:w-[60%]"
-        >
+        <Container cornerRadius="none" padding="none" className="w-full">
           <AppHeader />
           <Profile />
           <Skills />

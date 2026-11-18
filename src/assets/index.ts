@@ -32,6 +32,12 @@ import gitlabIcon from "./icons/gitlab.svg";
 import gitIcon from "./icons/git.svg";
 import githubActionsIcon from "./icons/github-actions.svg";
 import dockerIcon from "./icons/docker.svg";
+import shadcn from "./icons/shadcn.svg";
+import tanstack from "./icons/tanstack.svg";
+import typeorm from "./icons/typeorm.svg";
+import expoIcon from "./icons/expo.svg";
+import appStoreIcon from "./icons/app-store.svg";
+import playStoreicon from "./icons/google-play.svg";
 import rmdlandWebContractsImg from "./images/rmdland/web/contracts.png";
 import rmdlandWebContractImg from "./images/rmdland/web/contract.png";
 import rmdlandWebPaymentBreakdownImg from "./images/rmdland/web/payment-breakdowns.png";
@@ -41,6 +47,7 @@ import rmdlandWebReservations from "./images/rmdland/web/reservations.png";
 import rmdlandWebEmailsImg from "./images/rmdland/web/emails.png";
 import rmdlandMobileContractImg from "./images/rmdland/mobile/contract.png";
 import rmdlandThumbnailImg from "./images/rmdland/rmdland-icon-lg.svg";
+import cv from "./pdf/James Ryan Pagal - Full-Stack Developer Resume.pdf";
 
 export {
   appIcon,
@@ -86,4 +93,11 @@ export {
   rmdlandWebEmailsImg,
   rmdlandMobileContractImg,
   rmdlandThumbnailImg,
+  cv,
+  shadcn,
+  tanstack,
+  typeorm,
+  expoIcon,
+  appStoreIcon,
+  playStoreicon,
 };
