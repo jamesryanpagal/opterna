@@ -8,7 +8,7 @@ import Avatar from "@/components/avatar";
 import { profileImg } from "@/assets";
 import { onOpenUrl } from "@/utils/helper";
 import { useMemo, useRef, useState } from "react";
-import { Modal } from "@/components/ui/dialog";
+import { Sheet } from "@/components/ui/sheet";
 import { TextAreaGroup } from "@/components/input-group";
 import { ArrowDownToLine, Mail, Phone, SendHorizonal } from "lucide-react";
 import { cv } from "@/assets";
@@ -90,50 +90,57 @@ const Profile = () => {
 
   const renderModal = useMemo(() => {
     return (
-      <Modal
+      <Sheet
         title="How can i help you?"
         description="Feel free to reach out for collaborations or inquiries. You can also contact me via +63 966 569 5486."
         open={toggleModal}
         onOpenChange={e => setToggleModal(e)}
+        side="bottom"
       >
         <Container flexDisplay padding="none">
-          {error && (
-            <Container
-              bordered
-              className="bg-destructive/10 border-destructive"
-            >
-              <Text secondary className="text-center">
-                {error}
-              </Text>
-            </Container>
-          )}
-          <Input
-            label="From"
-            placeholder="Enter your email"
-            onChange={e => onSetMessageData("from")(e.target.value)}
-          />
-          <Input
-            label="Subject"
-            placeholder="Enter the subject"
-            onChange={e => onSetMessageData("subject")(e.target.value)}
-          />
-          <TextAreaGroup
-            ref={ref}
-            label="Message"
-            placeholder="Write a message"
-            className="min-h-[200px] max-h-[300px]"
-            onChange={e => onSetMessageData("message")(e.target.value)}
-          />
-          <Button
-            className="mt-2 bg-success hover:bg-success/80"
-            onClick={onSendMessage}
-            disabled={isLoading || disableSend}
-            loading={isLoading}
+          <Container
+            flexDisplay
+            padding="none"
+            className="w-full md:w-[500px] self-center"
           >
-            Send Message
-          </Button>
+            {error && (
+              <Container
+                bordered
+                className="bg-destructive/10 border-destructive"
+              >
+                <Text secondary className="text-center">
+                  {error}
+                </Text>
+              </Container>
+            )}
+            <Input
+              label="From"
+              placeholder="Enter your email"
+              onChange={e => onSetMessageData("from")(e.target.value)}
+            />
+            <Input
+              label="Subject"
+              placeholder="Enter the subject"
+              onChange={e => onSetMessageData("subject")(e.target.value)}
+            />
+            <TextAreaGroup
+              ref={ref}
+              label="Message"
+              placeholder="Write a message"
+              className="min-h-[200px] max-h-[300px]"
+              onChange={e => onSetMessageData("message")(e.target.value)}
+            />
+            <Button
+              className="mt-2 bg-success hover:bg-success/80"
+              onClick={onSendMessage}
+              disabled={isLoading || disableSend}
+              loading={isLoading}
+            >
+              Send Message
+            </Button>
+          </Container>
         </Container>
-      </Modal>
+      </Sheet>
     );
   }, [toggleModal, error, isLoading, disableSend, onSendMessage]);
 
@@ -212,7 +219,7 @@ const Profile = () => {
                 flexDisplay
                 alignItems="center"
                 gap="md"
-                className="md:w-[500px] border border-lightened-dark-bg/50 bg-background/5 backdrop-blur-lg relative pt-[60px] md:pt-[150px] translate-y-[60px]"
+                className="md:w-[500px] border border-lightened-dark-bg/50 bg-background/5 backdrop-blur-lg relative pt-[60px] md:pt-[150px] translate-y-[60px] md:translate-y-[100px]"
                 cornerRadius="lg"
               >
                 <Container
