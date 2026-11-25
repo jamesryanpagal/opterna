@@ -7,7 +7,7 @@ import { appIcon } from "@/assets";
 
 const AppFooter = () => {
   return (
-    <div className="flex flex-row min-h-10 py-5 justify-center items-center gap-4 text-sm border-t border-lightened-dark-bg bg-white dark:bg-card">
+    <div className="flex flex-row min-h-10 py-5 justify-center items-center gap-4 text-sm border-t border-lightened-dark-bg bg-white dark:bg-dark">
       <Container
         padding="none"
         flexDisplay

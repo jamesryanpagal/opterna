@@ -20,15 +20,13 @@ import { onOpenUrl, onScrollToAnchor } from "@/utils/helper";
 
 const headerVariants: Variants = {
   top: {
-    backgroundColor: COLORS.gunMetal,
+    backgroundColor: applyTransparent(COLORS.gunMetal, 0.1),
+    backdropFilter: "blur(10px)",
     height: "10vh",
   },
   scrolled: {
     backgroundColor: applyTransparent(COLORS.dark, 0.8),
     height: "6vh",
-    // top: 5,
-    // padding: "0 10px",
-    // borderRadius: 100,
     backdropFilter: "blur(10px)",
   },
 };
@@ -51,7 +49,7 @@ const AppHeader = () => {
       padding="none"
     >
       <motion.div
-        className="flex flex-row items-center justify-between self-center w-full md:w-[80%] lg:w-[65%] p-7 border-l border-r border-lightened-dark-bg"
+        className="flex flex-row items-center justify-between self-center w-[90%] md:w-[80%] lg:w-[65%] p-7 border-l border-r border-lightened-dark-bg"
         variants={headerVariants}
         animate={showScrolledMenu ? "scrolled" : "top"}
         initial={"top"}

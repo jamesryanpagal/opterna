@@ -4,6 +4,7 @@ import { Text, Title } from "./typography";
 import { useRef } from "react";
 import { useInView, motion } from "motion/react";
 import { useUpdateEffect } from "@/hooks/useUpdateEffect";
+import { useWindowDimension } from "@/hooks/useWindowDimension";
 
 export type PageHeaderProps = {
   title: string;
@@ -32,6 +33,7 @@ const PageHeader = ({
   onComponentInView,
 }: PageHeaderProps) => {
   const ref = useRef(null);
+  const { sm } = useWindowDimension();
   const isInView = useInView(ref, { amount: "all" });
 
   useUpdateEffect(() => {
@@ -56,7 +58,9 @@ const PageHeader = ({
           cornerRadius="none"
         >
           <Avatar size={iconSize} src={icon} className="rounded-none" />
-          <Title level={1}>{title}</Title>
+          <Title level={sm ? 3 : 1} className="text-center">
+            {title}
+          </Title>
         </Container>
         <Text secondary className="w-full text-center">
           {description}

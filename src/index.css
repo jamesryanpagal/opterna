@@ -78,7 +78,8 @@
   --card-foreground: #ffffff;
   --popover: #2b303b;
   --popover-foreground: #ffffff;
-  --success: "#6a994e";
+  --dark: #1b2431;
+  --success: #6a994e;
   --primary: #506895;
   --dodger-blue: #3a86ff;
   --primary-foreground: #ffffff;
@@ -145,6 +146,7 @@
   --color-primary: var(--primary);
   --color-dodger-blue: var(--dodger-blue);
   --color-success: var(--success);
+  --color-dark: var(--dark);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -265,7 +267,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--dodger-blue);
+    background-color: var(--primary);
   }
 
   .nav::after {
@@ -275,7 +277,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--dodger-blue);
+    background-color: var(--primary);
     transition: width 0.3s ease-in-out;
   }
 

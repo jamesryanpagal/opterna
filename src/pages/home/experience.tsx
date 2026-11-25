@@ -2,6 +2,7 @@ import { experienceIcon } from "@/assets";
 import Container from "@/components/container";
 import PageHeader from "@/components/page-header";
 import { Text, Title } from "@/components/typography";
+import { useWindowDimension } from "@/hooks/useWindowDimension";
 import { cn } from "@/lib/utils";
 import { experienceTimeline } from "@/utils/data";
 import { Calendar, MapPin } from "lucide-react";
@@ -16,6 +17,7 @@ export type TimelineProps = {
 };
 
 const Experience = () => {
+  const { sm } = useWindowDimension();
   return (
     <Container
       id="experience"
@@ -34,7 +36,7 @@ const Experience = () => {
         <Container
           padding="lg"
           cornerRadius="none"
-          className="w-full md:w-[80%] lg:w-[65%] self-center border-l border-r border-lightened-dark-bg"
+          className="w-[90%] md:w-[80%] lg:w-[65%] self-center border-l border-r border-lightened-dark-bg bg-dark"
         >
           <PageHeader
             title="Experiences"
@@ -48,7 +50,7 @@ const Experience = () => {
         flexDisplay
         cornerRadius="none"
         gap="none"
-        className="min-h-[100vh] w-full md:w-[80%] lg:w-[65%] self-center border-l border-r border-lightened-dark-bg"
+        className="min-h-[100vh] w-[90%] md:w-[80%] lg:w-[65%] self-center border-l border-r border-lightened-dark-bg"
       >
         <Container cornerRadius="none" padding="none" flexDisplay gap="none">
           {experienceTimeline.map(
@@ -74,7 +76,7 @@ const Experience = () => {
                     justifyContent="space-between"
                   >
                     <Container padding="none">
-                      <Title>{employer}</Title>
+                      <Title level={sm ? 4 : 3}>{employer}</Title>
                       <Text className="text-medium-torquoise">{role}</Text>
                     </Container>
                     <Container
@@ -83,12 +85,26 @@ const Experience = () => {
                       flexDirection="row"
                       alignItems="center"
                       gap="sm"
+                      className="hidden md:flex"
                     >
                       <Calendar size={16} />
                       <Text>
                         {date[0]} - {date[1]}
                       </Text>
                     </Container>
+                  </Container>
+                  <Container
+                    padding="none"
+                    flexDisplay
+                    flexDirection="row"
+                    alignItems="center"
+                    gap="sm"
+                    className="flex md:hidden"
+                  >
+                    <Calendar size={16} />
+                    <Text>
+                      {date[0]} - {date[1]}
+                    </Text>
                   </Container>
                   <Container
                     padding="none"

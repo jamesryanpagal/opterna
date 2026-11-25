@@ -94,7 +94,7 @@ const Skills = () => {
         <Container
           padding="lg"
           cornerRadius="none"
-          className="w-full md:w-[80%] lg:w-[65%] self-center border-l border-r border-lightened-dark-bg"
+          className="w-[90%] md:w-[80%] lg:w-[65%] self-center border-l border-r border-lightened-dark-bg bg-dark"
         >
           <PageHeader
             title="Technical Skills"
@@ -108,7 +108,7 @@ const Skills = () => {
         flexDisplay
         cornerRadius="none"
         gap="none"
-        className="min-h-[100vh] w-full md:w-[80%] lg:w-[65%] self-center border-l border-r border-lightened-dark-bg"
+        className="min-h-[100vh] w-[90%] md:w-[80%] lg:w-[65%] self-center border-l border-r border-lightened-dark-bg"
       >
         <Container
           padding="none"
