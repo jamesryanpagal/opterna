@@ -212,11 +212,11 @@ const Profile = () => {
                 flexDisplay
                 alignItems="center"
                 gap="md"
-                className="md:w-[500px] border border-lightened-dark-bg/50 bg-background/5 backdrop-blur-lg relative pt-[100px] md:pt-[150px] translate-y-[120px]"
+                className="md:w-[500px] border border-lightened-dark-bg/50 bg-background/5 backdrop-blur-lg relative pt-[60px] md:pt-[150px] translate-y-[60px]"
                 cornerRadius="lg"
               >
                 <Container
-                  className="w-[150px] h-[150px] md:w-[250px] md:h-[250px] absolute top-0 left-[50%] translate-x-[-50%] translate-y-[-50%]"
+                  className="w-[100px] h-[100px] md:w-[250px] md:h-[250px] absolute top-0 left-[50%] translate-x-[-50%] translate-y-[-50%]"
                   padding="none"
                 >
                   <Avatar src={profileImg} size="full" />
